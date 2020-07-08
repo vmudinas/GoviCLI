@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceService", "..\Invoic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfService", "..\PdfService\PdfService.csproj", "{DE77C1FF-58DE-4752-884E-18C04631E665}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoviCLITests", "..\GoviCLITests\GoviCLITests.csproj", "{6D9D87BD-0107-4F70-8C69-D9F5DDC419DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DE77C1FF-58DE-4752-884E-18C04631E665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE77C1FF-58DE-4752-884E-18C04631E665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE77C1FF-58DE-4752-884E-18C04631E665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9D87BD-0107-4F70-8C69-D9F5DDC419DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9D87BD-0107-4F70-8C69-D9F5DDC419DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9D87BD-0107-4F70-8C69-D9F5DDC419DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9D87BD-0107-4F70-8C69-D9F5DDC419DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
