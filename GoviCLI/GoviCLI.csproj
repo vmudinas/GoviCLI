@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InvoiceService\InvoiceService.csproj" />
+    <ProjectReference Include="..\PdfService\PdfService.csproj" />
   </ItemGroup>
 
 </Project>

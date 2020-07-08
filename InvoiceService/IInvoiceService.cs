@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using static InvoiceService.InvoiceService;
 
 namespace InvoiceService
 {
     public interface IInvoiceService
     {
-        Task FetchData();
-        Task<string> GetData();
+        Task FetchData<TColumn>(Func<Invoice, TColumn> sort, bool orderByDesc);
+        Task<List<Invoice>> GetCachedData();
     }
 }

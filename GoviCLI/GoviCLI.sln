@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoviCLI", "GoviCLI.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceService", "..\InvoiceService\InvoiceService.csproj", "{B7236CEF-AD4B-48F5-B597-E548D780E41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfService", "..\PdfService\PdfService.csproj", "{DE77C1FF-58DE-4752-884E-18C04631E665}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B7236CEF-AD4B-48F5-B597-E548D780E41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7236CEF-AD4B-48F5-B597-E548D780E41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7236CEF-AD4B-48F5-B597-E548D780E41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE77C1FF-58DE-4752-884E-18C04631E665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE77C1FF-58DE-4752-884E-18C04631E665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE77C1FF-58DE-4752-884E-18C04631E665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE77C1FF-58DE-4752-884E-18C04631E665}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

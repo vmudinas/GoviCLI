@@ -1,7 +1,9 @@
-﻿using InvoiceService;
+﻿using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using PdfService;
 
 namespace InvoiceService
 {
@@ -14,10 +16,13 @@ namespace InvoiceService
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Warning))
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
                     services.AddHostedService<Worker>();
-                    services.AddHostedService<Worker2>();
+                    services.AddTransient<IInvoiceService, InvoiceService>();
+                    services.AddTransient<IPdfService, PdfService.PdfService>();
                     services.AddHttpClient<IInvoiceService, InvoiceService>();
                     services.AddMemoryCache();
                 });
