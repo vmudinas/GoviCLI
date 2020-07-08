@@ -30,7 +30,8 @@ namespace InvoiceService
                 Console.WriteLine($"2.Run goviquery 'invoices' - s 'paidDate' - d 'DESC'");
                 Console.WriteLine($"3.Run goviquery 'invoices' - s 'amount' -d 'ASC'");
                 Console.WriteLine($"4.Run goviquery 'invoices' - s 'amount' - d 'DESC'");
-                Console.WriteLine($"5.Display last ran query result from cache\n");
+                Console.WriteLine($"5.Display last ran query result from cache");
+                Console.WriteLine($"6.Generate Pdf report from cached data\n");
                 Console.Write("Enter option number: "); 
        
                 await ProcessUserInput(Console.ReadLine());
@@ -58,17 +59,19 @@ namespace InvoiceService
                         await _invoiceService.FetchData((x => x.Amount), true);
                         break;
                     case "5":
-                        var result = await _invoiceService.GetCachedData();
-                        foreach (var value in result)
+                        foreach (var value in _invoiceService.GetCachedData())
                         {
                             Console.WriteLine($"Id: {value.Id} \n Paid: {value.Paid} \n PaidDate: {value.PaidDate} \n Due: {value.Due} \n Date: {value.Date} \n Currency: {value.Currency} \n Amount: {value.Amount}");
                             Console.WriteLine("_______________________________________________");
                         }
                         break;
+                    case "6":
+                        _pdfService.GeneratePdf();
+                        break;
                     default:
                         Console.WriteLine($"Invalid input please try again. \n");
                         break;
-                }
+                }                
             }
             catch (Exception ex)
             {

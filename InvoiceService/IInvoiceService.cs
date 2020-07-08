@@ -8,6 +8,6 @@ namespace InvoiceService
     public interface IInvoiceService
     {
         Task FetchData<TColumn>(Func<Invoice, TColumn> sort, bool orderByDesc);
-        Task<List<Invoice>> GetCachedData();
+        List<Invoice> GetCachedData();
     }
 }

@@ -14,11 +14,13 @@ namespace InvoiceService
     {
         private readonly IMemoryCache _cache;
         private readonly HttpClient _httpClient;
+        private readonly ILogger<InvoiceService> _logger;
 
         public InvoiceService(IMemoryCache memoryCache, HttpClient httpClient, ILogger<InvoiceService> logger)
         {
             _cache = memoryCache;
             _httpClient = httpClient;
+            _logger = logger;
         }
 
         public async Task FetchData<TColumn>(Func<Invoice,TColumn> sort, bool orderByDesc)
@@ -40,14 +42,25 @@ namespace InvoiceService
 
             //// Save data in cache.
             _cache.Set("Data", result);
+
+            _logger.LogWarning($"Data was fetched successfully\n");
         }
 
-        public async Task<List<Invoice>> GetCachedData()
+        public List<Invoice> GetCachedData()
         {
-            // Use await here!
-            await Task.Delay(10);
+
+            if (_cache.TryGetValue("Data", out List<Invoice> data))
+            {
+                _logger.LogWarning("Data Cached\n");
+                return data;
+            }
+            else
+            {
+                _logger.LogWarning("Cached data not found!");
+            }
+
             // Save data in cache.
-            return  _cache.Get<List<Invoice>>("Data");
+            return new List<Invoice>();
         }
     }
 }
